@@ -1,0 +1,6 @@
+model banana hai usko phir controller se excute krwana hai
+aur routes provide kra kr apne ko data base me data fill krne hai
+phir usko fetch krwana
+
+phir encryption aur token authentication krna hai
+
