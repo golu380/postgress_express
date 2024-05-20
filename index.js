@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const {Pool} = require('pg')
 const db_info = require('./config/index');
-const pool = require('./config/index');
+const {pool} = require('./config/index');
 // const errorHandler = require('./middleware/errorHandler');
 // console.log(db_info);
 
