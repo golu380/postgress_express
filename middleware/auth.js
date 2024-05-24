@@ -1,21 +1,25 @@
-import CustomErrorHandler from '../services/CustomErrorHandler'
-import JwtService from '../services/JwtService'
+// import CustomErrorHandler from '../services/CustomErrorHandler'
+// import JwtService from '../services/JwtService'
+const CustomErrorHandler = require('../services/CustomErrorHandler');
+const JwtService = require('../services/JwtService')
 
 const auth = async (req, res, next) => {
   let authHeader = req.headers.authorization
+  console.log(authHeader)
   if (!authHeader) {
     return next(CustomErrorHandler.unAuthorized('No Token in here'))
   }
   const token = authHeader.split(' ')[1]
 
   try {
-    const { _id, name, email, role } = JwtService.verify(token)
+    const { id, full_name, email, username, isAdmin } = JwtService.verify(token)
 
     const user = {
-      _id,
-      name,
+      id,
+      full_name,
       email,
-      role
+      username,
+      isAdmin
     }
     req.user = user
     next()
@@ -24,4 +28,4 @@ const auth = async (req, res, next) => {
   }
 }
 
-export default auth
+module.exports = auth;

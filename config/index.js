@@ -19,8 +19,10 @@ const db_info = {
     
 }
 const JWT_SECRET = process.env.JWT_SECRET
+const EMAIL = process.env.EMAIL;
+const EMAIL_PASS= process.env.EMAIL_PASS
 const pool = new Pool(db_info)
 
 
-module.exports={pool,JWT_SECRET};
+module.exports={pool,JWT_SECRET,EMAIL,EMAIL_PASS};
   
