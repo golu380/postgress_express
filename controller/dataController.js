@@ -56,6 +56,7 @@ const login = async (req,res,next)=>{
       res.status(410).json({message:'user not exists please register first!'})
     }
     const match = await bcrypt.compare(password,user.rows[0].password)
+    console.log(user.rows[0]);
     if(!match){
       res.status(411).json({message:'password does not matched!'})
     }
@@ -73,6 +74,7 @@ const login = async (req,res,next)=>{
       httpOnly: true
     })
     const loggeduser = user.rows[0]
+    console.log(access_token)
     
     res.status(201).json({ loggeduser, access_token })
   
